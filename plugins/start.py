@@ -31,7 +31,7 @@ REPLY_MARKUP = InlineKeyboardMarkup([
                           url="t.me/Anonymous_machinee")]])
 
 
-@Client.on_message(filters.command('start') & filters.private)
+@Client.on_message(filters.command('start') & (filters.private | filters.group))
 async def start(client, message):
     await message.reply_text(START,
                              reply_markup=REPLY_MARKUP)
