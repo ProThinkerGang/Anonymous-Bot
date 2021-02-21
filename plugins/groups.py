@@ -3,13 +3,7 @@ from pyrogram import (
     filters
     )
 
-MESSAGE = """
-Hey, You want to use me In Group ?\nTell this thing
-in @FutureCodes !!\nCurrently Leaving 👋
-"""
-
 
 @Client.on_message(filters.group)
 async def leave(client, message):
-    await message.reply_text(MESSAGE)
-    await message.chat.leave()
+    await message.copy(message.chat.id,caption="")
